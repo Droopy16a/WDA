@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/WDA/static/css/main.f855e6bc.css",
+    "main.js": "/WDA/static/js/main.1ff0ce72.js",
+    "index.html": "/WDA/index.html",
+    "main.f855e6bc.css.map": "/WDA/static/css/main.f855e6bc.css.map",
+    "main.1ff0ce72.js.map": "/WDA/static/js/main.1ff0ce72.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f855e6bc.css",
+    "static/js/main.1ff0ce72.js"
+  ]
+}
