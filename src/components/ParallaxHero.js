@@ -29,7 +29,7 @@ export default function ParallaxHero() {
       <div className="hero-content">
         <h1>WHEN DUNGEONS ARISE</h1>
         <p>Un roguelike multijoueur asymétrique 1v1</p>
-        <button>Découvrir le jeu</button>
+        <a href=""><button>Découvrir le jeu</button></a>
       </div>
     </section>
   );
