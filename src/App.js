@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Sword, Users, Zap, Crown, Shield, Gamepad2, Code, Wifi } from 'lucide-react';
+import ParallaxHero from './components/ParallaxHero';
 
 export default function App() {
   const [scrollY, setScrollY] = useState(0);
@@ -21,23 +22,22 @@ export default function App() {
 
   return (
     <div className="bg-gray-900 text-white min-h-screen overflow-x-hidden">
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-gray-900/95 backdrop-blur-sm z-50 border-b border-purple-500/30">
+      <nav className="fixed top-0 w-full bg-gray-900/95 backdrop-blur-sm z-50 border-b border-blue-500/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-2">
-              <Sword className="w-8 h-8 text-purple-500" />
-              <span className="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
+              <Sword className="w-8 h-8 text-blue-500" />
+              <span className="text-xl uppercase font-bold white">
                 When Dungeons Arise
               </span>
             </div>
             
             <div className="hidden md:flex space-x-8">
-              <a href="#home" className="hover:text-purple-400 transition">Accueil</a>
-              <a href="#about" className="hover:text-purple-400 transition">À propos</a>
-              <a href="#gameplay" className="hover:text-purple-400 transition">Gameplay</a>
-              <a href="#features" className="hover:text-purple-400 transition">Fonctionnalités</a>
-              <a href="#team" className="hover:text-purple-400 transition">Équipe</a>
+              <a href="#home" className="hover:text-blue-400 transition">Accueil</a>
+              <a href="#about" className="hover:text-blue-400 transition">À propos</a>
+              <a href="#gameplay" className="hover:text-blue-400 transition">Gameplay</a>
+              <a href="#features" className="hover:text-blue-400 transition">Fonctionnalités</a>
+              <a href="#team" className="hover:text-blue-400 transition">Équipe</a>
             </div>
 
             <button 
@@ -54,87 +54,71 @@ export default function App() {
         </div>
 
         {isMenuOpen && (
-          <div className="md:hidden bg-gray-800 border-t border-purple-500/30">
+          <div className="md:hidden bg-gray-800 border-t border-blue-500/30">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              <a href="#home" className="block px-3 py-2 hover:bg-purple-500/20 rounded">Accueil</a>
-              <a href="#about" className="block px-3 py-2 hover:bg-purple-500/20 rounded">À propos</a>
-              <a href="#gameplay" className="block px-3 py-2 hover:bg-purple-500/20 rounded">Gameplay</a>
-              <a href="#features" className="block px-3 py-2 hover:bg-purple-500/20 rounded">Fonctionnalités</a>
-              <a href="#team" className="block px-3 py-2 hover:bg-purple-500/20 rounded">Équipe</a>
+              <a href="#home" className="block px-3 py-2 hover:bg-blue-500/20 rounded">Accueil</a>
+              <a href="#about" className="block px-3 py-2 hover:bg-blue-500/20 rounded">À propos</a>
+              <a href="#gameplay" className="block px-3 py-2 hover:bg-blue-500/20 rounded">Gameplay</a>
+              <a href="#features" className="block px-3 py-2 hover:bg-blue-500/20 rounded">Fonctionnalités</a>
+              <a href="#team" className="block px-3 py-2 hover:bg-blue-500/20 rounded">Équipe</a>
             </div>
           </div>
         )}
       </nav>
 
-      {/* Hero Section avec Parallaxe */}
       <section id="home" className="relative h-screen overflow-hidden">
-        {/* Background Layer */}
         <div 
-          className="absolute inset-0 bg-gradient-to-b from-purple-900/50 to-gray-900"
+          className="absolute inset-0 bg-gradient-to-b from-blue-900/50 to-gray-900"
           style={parallaxBg}
         >
           <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiM4YjVjZjYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRjMC0yLjIxLTEuNzktNC00LTRzLTQgMS43OS00IDQgMS43OSA0IDQgNCA0LTEuNzkgNC00em0wLTEwYzAtMi4yMS0xLjc5LTQtNC00cy00IDEuNzktNCA0IDEuNzkgNCA0IDQgNC0xLjc5IDQtNHpNMTIgMzRjMC0yLjIxLTEuNzktNC00LTRzLTQgMS43OS00IDQgMS43OSA0IDQgNCA0LTEuNzkgNC00em0wLTEwYzAtMi4yMS0xLjc5LTQtNC00cy00IDEuNzktNCA0IDEuNzkgNCA0IDQgNC0xLjc5IDQtNHoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-20"></div>
         </div>
 
-        {/* Characters Layer avec effet de profondeur */}
         <div 
           className="absolute inset-0 flex items-center justify-center"
           style={parallaxCharacters}
         >
-          <div className="relative w-full max-w-6xl mx-auto px-4">
-            {/* Placeholder pour vos personnages - ajustez selon vos images */}
-            <div className="absolute left-10 top-1/4 w-64 h-96 bg-gradient-to-br from-purple-600/30 to-transparent rounded-lg backdrop-blur-sm flex items-center justify-center">
-              <Shield className="w-32 h-32 text-purple-400 animate-pulse" />
-              <span className="absolute bottom-4 text-sm font-bold">Héros</span>
-            </div>
-            
-            <div className="absolute right-10 top-1/4 w-64 h-96 bg-gradient-to-bl from-red-600/30 to-transparent rounded-lg backdrop-blur-sm flex items-center justify-center">
-              <Crown className="w-32 h-32 text-red-400 animate-pulse" />
-              <span className="absolute bottom-4 text-sm font-bold">Boss</span>
-            </div>
-          </div>
+
+          <ParallaxHero />
         </div>
 
-        {/* Content Layer */}
         <div className="relative z-10 h-full flex items-center justify-center text-center px-4">
           <div className="space-y-6 animate-fadeIn">
-            <h1 className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent drop-shadow-2xl">
+            <h1 className="font-display uppercase text-6xl md:text-8xl font-bold text-blue-100 drop-shadow-2xl">
               When Dungeons Arise
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto">
               Un roguelike multijoueur asymétrique où héros et boss s'affrontent dans des donjons générés
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-              <button className="px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-bold hover:scale-105 transition transform shadow-lg shadow-purple-500/50">
+              <button className="px-8 py-3 bg-blue-400 rounded-lg font-bold hover:scale-105 transition transform">
                 Découvrir le jeu
               </button>
-              <button className="px-8 py-3 bg-gray-800 border-2 border-purple-500 rounded-lg font-bold hover:bg-gray-700 transition">
+              <button className="px-8 py-3 bg-gray-800 border-2 border-blue-500 rounded-lg font-bold hover:bg-gray-700 transition">
                 Voir la démo
               </button>
             </div>
           </div>
         </div>
 
-        {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-purple-400 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-purple-400 rounded-full mt-2"></div>
+          <div className="w-6 h-10 border-2 border-blue-400 rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-blue-400 rounded-full mt-2"></div>
           </div>
         </div>
       </section>
 
-      {/* About Section */}
       <section id="about" className="py-20 bg-gray-800/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 text-white te">
             Un Combat Asymétrique Unique
           </h2>
           
           <div className="grid md:grid-cols-2 gap-12">
             <div className="space-y-6">
-              <div className="bg-gradient-to-br from-purple-900/50 to-gray-900/50 p-8 rounded-xl border border-purple-500/30 hover:border-purple-500 transition">
+              <div className="bg-gradient-to-br from-blue-900/50 to-gray-900/50 p-8 rounded-xl border border-blue-500/30 hover:border-blue-500 transition">
                 <div className="flex items-center space-x-4 mb-4">
-                  <Shield className="w-12 h-12 text-purple-400" />
+                  <Shield className="w-12 h-12 text-blue-400" />
                   <h3 className="text-2xl font-bold">Le Héros</h3>
                 </div>
                 <p className="text-gray-300">
@@ -167,17 +151,16 @@ export default function App() {
         </div>
       </section>
 
-      {/* Gameplay Section */}
       <section id="gameplay" className="py-20 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 text-white te">
             Gameplay Innovant
           </h2>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-gray-800 p-6 rounded-xl border border-purple-500/20 hover:border-purple-500 transition group">
-              <div className="bg-purple-600/20 w-16 h-16 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition">
-                <Gamepad2 className="w-8 h-8 text-purple-400" />
+            <div className="bg-gray-800 p-6 rounded-xl border border-blue-500/20 hover:border-blue-500 transition group">
+              <div className="bg-blue-600/20 w-16 h-16 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition">
+                <Gamepad2 className="w-8 h-8 text-blue-400" />
               </div>
               <h3 className="text-xl font-bold mb-3">Combat Dynamique</h3>
               <p className="text-gray-400">
@@ -185,8 +168,8 @@ export default function App() {
               </p>
             </div>
 
-            <div className="bg-gray-800 p-6 rounded-xl border border-purple-500/20 hover:border-purple-500 transition group">
-              <div className="bg-pink-600/20 w-16 h-16 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition">
+            <div className="bg-gray-800 p-6 rounded-xl border border-blue-500/20 hover:border-blue-500 transition group">
+              <div className="bg-blue-200/20 w-16 h-16 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition">
                 <Zap className="w-8 h-8 text-pink-400" />
               </div>
               <h3 className="text-xl font-bold mb-3">IA Autonome</h3>
@@ -195,7 +178,7 @@ export default function App() {
               </p>
             </div>
 
-            <div className="bg-gray-800 p-6 rounded-xl border border-purple-500/20 hover:border-purple-500 transition group">
+            <div className="bg-gray-800 p-6 rounded-xl border border-blue-500/20 hover:border-blue-500 transition group">
               <div className="bg-red-600/20 w-16 h-16 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition">
                 <Users className="w-8 h-8 text-red-400" />
               </div>
@@ -208,10 +191,9 @@ export default function App() {
         </div>
       </section>
 
-      {/* Features Section */}
       <section id="features" className="py-20 bg-gray-800/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 text-white te">
             Fonctionnalités Techniques
           </h2>
 
@@ -224,8 +206,8 @@ export default function App() {
               { icon: Crown, title: "Donjons Variés", desc: "Explorez différentes zones avec leurs propres défis" },
               { icon: Sword, title: "Compétences Uniques", desc: "Maîtrisez des sorts et capacités spéciales" }
             ].map((feature, i) => (
-              <div key={i} className="bg-gray-900 p-6 rounded-lg border border-purple-500/20 hover:border-purple-500 transition hover:scale-105 transform">
-                <feature.icon className="w-10 h-10 text-purple-400 mb-3" />
+              <div key={i} className="bg-gray-900 p-6 rounded-lg border border-blue-500/20 hover:border-blue-500 transition hover:scale-105 transform">
+                <feature.icon className="w-10 h-10 text-blue-400 mb-3" />
                 <h3 className="text-lg font-bold mb-2">{feature.title}</h3>
                 <p className="text-gray-400 text-sm">{feature.desc}</p>
               </div>
@@ -234,10 +216,9 @@ export default function App() {
         </div>
       </section>
 
-      {/* Team Section */}
       <section id="team" className="py-20 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 text-white te">
             L'Équipe
           </h2>
 
@@ -249,12 +230,12 @@ export default function App() {
               { name: "Paul Chalmandrier", role: "UI et menus" },
               { name: "Oscar Plisson", role: "Système de compétences" }
             ].map((member, i) => (
-              <div key={i} className="bg-gradient-to-br from-purple-900/30 to-gray-800 p-6 rounded-xl border border-purple-500/30 hover:border-purple-500 transition text-center">
-                <div className="w-20 h-20 bg-gradient-to-br from-purple-600 to-pink-600 rounded-full mx-auto mb-4 flex items-center justify-center text-2xl font-bold">
+              <div key={i} className="bg-gradient-to-br from-blue-900/30 to-gray-800 p-6 rounded-xl border border-blue-500/30 hover:border-blue-500 transition text-center">
+                <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-200 rounded-full mx-auto mb-4 flex items-center justify-center text-2xl font-bold">
                   {member.name.split(' ').map(n => n[0]).join('')}
                 </div>
                 <h3 className="text-xl font-bold mb-2">{member.name}</h3>
-                <p className="text-purple-400">{member.role}</p>
+                <p className="text-blue-400">{member.role}</p>
               </div>
             ))}
           </div>
@@ -267,13 +248,12 @@ export default function App() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-950 border-t border-purple-500/30 py-12">
+      <footer className="bg-gray-950 border-t border-blue-500/30 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center space-x-2 mb-4 md:mb-0">
-              <Sword className="w-6 h-6 text-purple-500" />
-              <span className="font-bold">When Dungeons Arise</span>
+              <Sword className="w-6 h-6 text-blue-500" />
+              <span className="font-bold uppercase">When Dungeons Arise</span>
             </div>
             
             <div className="text-gray-400 text-sm text-center md:text-right">
