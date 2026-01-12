@@ -1,48 +1,33 @@
-import './App.css';
-import { useState, useEffect } from "react";
+import ParallaxHero from "./components/ParallaxHero";
 
-function App() {
-  const [rate, setRate] = useState(50);
-  const [userData, setUserData] = useState(null);
-
-  useEffect(() => {
-    fetch("https://ipapi.co/json/")
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("User location data:", data);
-        setUserData(data);
-      })
-      .catch((err) => console.error(err));
-  }, []);
-
-  const handleClick = () => {
-    console.log(rate);
-    console.log(userData);
-    if (rate < 99) {
-      window.alert("Bah Nique ta mère alors : " + userData.ip + " t'habite a " + userData.city);
-    } else {
-      window.alert("Bien vu fro");
-    }
-  };
-
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>BITEEEEEEEEE</h1>
-        <p>A combien notez vous notre site web ?</p>
-        <input
-          type="range"
-          min="1"
-          max="100"
-          value={rate}
-          onChange={(e) => setRate(e.target.value)}
-        />
-        <button onClick={handleClick}>Valider</button>
-        <p>Note: {rate}</p>
-      </header>
-    </div>
+    <>
+      <ParallaxHero />
+
+      <section className="section">
+        <h2>À propos du jeu</h2>
+        <p>
+          When Dungeons Arise est un roguelike multijoueur asymétrique.
+          Un joueur incarne le Héros, l’autre le Boss, qui contrôle les ennemis
+          et influence la partie en temps réel.
+        </p>
+      </section>
+
+      <section className="section dark">
+        <h2>Fonctionnalités</h2>
+        <ul className="features">
+          <li>⚔️ Duel Héros vs Boss en 1v1</li>
+          <li>🧠 Ennemis contrôlés par IA</li>
+          <li>🌀 Donjons procéduraux</li>
+          <li>🔥 Système de compétences</li>
+          <li>🌐 Multijoueur réseau</li>
+        </ul>
+      </section>
+
+      <footer>
+        <p>© 2026 – When Dungeons Arise</p>
+      </footer>
+    </>
   );
 }
-
-
-export default App;
